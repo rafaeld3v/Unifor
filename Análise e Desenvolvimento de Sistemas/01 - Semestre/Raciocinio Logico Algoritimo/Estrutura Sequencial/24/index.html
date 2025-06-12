@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title> Atividade 24 </title>
+    </head>
+    <body>
+        <script>
+            // Exemplo hora: 4.35
+            let hora = parseFloat(prompt("Digite a hora em numero real: "))
+            let minutos = (hora - Math.floor(hora))
+            if(0 > minutos < 59) {
+            }else{
+                document.write("Os minutos vão de 0 a 59")
+            }
+            let horaemminutos = (Math.trunc(hora) * 60) + (minutos * 100)
+            let hm = Math.round(horaemminutos)
+            document.write("A hora digitada em minutos é: ", hm, "minutos.")
+        </script>
+    </body>
+</html>

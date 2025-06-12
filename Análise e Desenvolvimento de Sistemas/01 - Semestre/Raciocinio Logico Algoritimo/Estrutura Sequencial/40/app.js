@@ -1,0 +1,5 @@
+let salario = parseFloat(prompt("Digite o seu salario: "))
+let conta1 = parseFloat(prompt("Digite o valor da primeira conta: "))
+let conta2 = parseFloat(prompt("Digite o valor da segunda conta: "))
+let salariofinal = (salario - ((conta1 - (conta1 * 0.02)) + (conta2 - (conta2 * 0.02))))
+document.write("O salario final é: R$",salariofinal,'<br>')

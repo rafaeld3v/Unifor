@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title> Atividade 15 </title>
+    </head>
+    <body>
+        <script>
+            let precodefabrica = parseFloat(prompt("Digite o preço de fabrica: "))
+            let percentualdelucro = parseFloat(prompt("Digite o percentual de lucro do distribuidor: "))
+            let impostosaplicado = parseFloat(prompt("Digite os impostos aplicados ao preço de fabrica: "))
+            // item a
+            let lucrodistribuidor = precodefabrica * percentualdelucro
+            document.write("O lucro do distribuidor é: ", lucrodistribuidor, "<br>")
+            // item b
+            let impostos = precodefabrica * impostosaplicado
+            document.write("O valor correspondente aos impostos é: ", impostos, "<br>")
+            // item c
+            let precofinal = (lucrodistribuidor + impostos + precodefabrica)
+            document.write("O preço final do veiculo é: ", precofinal, "<br>")
+            
+        </script>
+    </body>
+</html>

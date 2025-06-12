@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <title> Atividade 18 </title>
+    </head>
+    <body>
+        <script>
+            let sacoderacao = parseFloat(prompt("Digite o peso do saco de ração em kilogramas:"))
+            let racaogato1 = parseFloat(prompt("Digite a quantidade de ração fornecida para o gato 1 em gramas:"))
+            let racaogato2 = parseFloat(prompt("Digite a quantidade de ração fornecida para o gato 2 em gramas:"))
+            let restoderacao = sacoderacao - ((racaogato1 / 1000) + (racaogato2 / 1000) * 5)
+
+            document.write("O restante de ração depois de 5 dias é: ", restoderacao," Kg.")
+        </script>
+    </body>
+</html>

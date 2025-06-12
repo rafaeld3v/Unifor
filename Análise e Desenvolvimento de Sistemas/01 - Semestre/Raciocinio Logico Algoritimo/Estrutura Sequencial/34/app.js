@@ -1,0 +1,5 @@
+let basemaior = parseFloat(prompt("Digite o valor da base maior: "))
+let basemenor = parseFloat(prompt("Digite o valor da base menor: "))
+let altura = parseFloat(prompt("Digite o valor da altura: "))
+let area = (((basemaior + basemenor) * altura)/2)
+document.write("A area do trapezio é: ", area, "cm<br>")

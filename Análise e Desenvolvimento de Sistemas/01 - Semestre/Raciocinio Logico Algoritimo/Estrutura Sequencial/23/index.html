@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title> Atividade 23 </title>
+    </head>
+    <body>
+        <script>
+            let n = parseFloat(prompt("Digite um numero real:"))
+            // item a
+            let parteinteira = Math.trunc(n)
+            document.write("A parte inteira do numero é: ",parteinteira, '<br>')
+            // item b
+            // usar o ponto e não a virgula
+            let partefracionaria = (n - Math.floor(n))
+            document.write("A parte fracionaria desse numero é: ", partefracionaria, '<br>')
+            // item c 
+            let arredondamento = Math.round(n)
+            document.write("A parte inteira do numero é: ",arredondamento, '<br>')
+        </script>
+    </body>
+</html>

@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title> Atividade 11 </title>
+    </head>
+    <body>
+        <script>
+            let n = parseFloat(prompt("Digite um numero: "))
+            if(n > 0){
+               // item a
+                var quadrado = Math.pow(n, 2)
+                document.write("O numero digitado ao quadrado: ",quadrado, "<br>")
+                // item b
+                var cubo = Math.pow(n, 3)
+                document.write("O numero digitado ao cubo : ",cubo, "<br>")
+                // item c
+                var raizquadrada = Math.sqrt(n)
+                document.write("A raiz quadrada do numero digitado: ",raizquadrada, "<br>")
+                // item d
+                var raizcubica = Math.cbrt(n)
+                document.write("A raiz cubica do numero digitado: ",raizcubica, "<br>")
+            }
+            else{
+                document.write("Digite um número positivo maior que zero!!!")
+            }
+        </script>
+    </body>
+</html>

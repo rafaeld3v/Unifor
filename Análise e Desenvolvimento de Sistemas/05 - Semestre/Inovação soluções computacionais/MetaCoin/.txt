@@ -1,0 +1,30 @@
+A partir do Truffle v5, o console suporta funções async/await, permitindo interações muito mais simples com o contrato.
+
+Comece estabelecendo a instância do contrato MetaCoin implantada e as contas criadas pelo blockchain interno do Truffle ou pelo Ganache:
+
+truffle(development)> let instance = await MetaCoin.deployed()
+truffle(development)> let accounts = await web3.eth.getAccounts()
+
+Verifique o saldo da metacoin da conta que implantou o contrato:
+
+truffle(development)> let balance = await instance.getBalance(accounts[0])
+truffle(development)> balance.toNumber()
+
+Veja quanto vale esse saldo (e observe que o contrato define que uma metacoin vale 2 ether):
+
+truffle(development)> let ether = await instance.getBalanceInEth(accounts[0])
+truffle(development)> ether.toNumber()
+
+Transfira alguma metacoin de uma conta para outra:
+
+truffle(development)> instance.sendCoin(accounts[1], 500)
+
+Verifique o saldo da conta que recebeu a metacoin:
+
+truffle(development)> let received = await instance.getBalance(accounts[1])
+truffle(development)> received.toNumber()
+
+Verifique o saldo da conta que enviou a metacoin:
+
+truffle(development)> let newBalance = await instance.getBalance(accounts[0])
+truffle(development)> newBalance.toNumber()

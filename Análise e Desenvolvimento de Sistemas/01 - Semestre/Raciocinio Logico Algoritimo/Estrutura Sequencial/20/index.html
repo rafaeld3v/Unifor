@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title> Atividade 20 </title>
+    </head>
+    <body>
+        <script>
+            // OVER FLOW
+            let angulo = parseFloat(prompt("Digite o angulo:"))
+            let parede = parseFloat(prompt("Digite a altura da parede em cm:"))
+            let radiano = (angulo * (Math.PI * 2)) /360
+
+            let escada = parede / Math.sin(radiano)
+
+            document.write("A altura da escada é: ", escada, 'cm')
+            console.log(radiano)
+        </script>
+    </body>
+</html>
