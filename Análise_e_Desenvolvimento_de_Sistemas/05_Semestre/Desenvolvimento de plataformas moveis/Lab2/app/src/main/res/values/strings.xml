@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Lab2</string>
+    <string name="edit_message">Digite seu nome</string>
+    <string name="button_send">Enviar</string>
+</resources>

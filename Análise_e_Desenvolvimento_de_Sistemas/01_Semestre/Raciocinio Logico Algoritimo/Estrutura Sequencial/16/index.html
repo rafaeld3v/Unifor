@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title> Atividade 16 </title>
+    </head>
+    <body>
+        <script>
+            let ht = parseFloat(prompt("Digite o numero de horas trabalhadas:"))
+            let sm = parseFloat(prompt("Digite o valor do salario minimo:"))
+            // item a
+            let vh = sm/2
+            document.write("O salario a receber é: R$", vh, "<br>")
+            // item b 
+            let sb = ht * vh
+            document.write("O salario bruto é: R$", sb, "<br>")
+            // item c 
+            let sbi = sb - (sb * 0.03)
+            document.write("O salario bruto com os impostos é: R$", sbi, "<br>")
+       
+        </script>
+    </body>
+</html>

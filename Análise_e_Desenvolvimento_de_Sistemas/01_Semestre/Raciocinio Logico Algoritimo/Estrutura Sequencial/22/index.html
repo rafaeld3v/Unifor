@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title> Atividade 22 </title>
+    </head>
+    <body>
+        <script>
+            let salariominimo = parseFloat(prompt("Digite o valor do salario minimo:"))
+            let quilowattsconsumida = parseFloat(prompt("Digite a quantidade de quilowatts consumida:"))
+            // item a 
+            let valorquilowatts = (salariominimo / 5)
+            document.write("O valor de cada quilowatts é: R$", valorquilowatts, '<br>')
+            // item b
+            let valorpago = (quilowattsconsumida * (salariominimo / 5))
+            document.write("O valor pago por essa residencia é: R$", valorpago, '<br>')
+            // item c 
+            let valorpagodesconto = (quilowattsconsumida * (salariominimo / 5)) - (quilowattsconsumida * (salariominimo / 5) * 0.15)
+            document.write("O valor pago com desconto por essa residencia é: R$", valorpagodesconto, '<br>')
+        </script>
+    </body>
+</html>

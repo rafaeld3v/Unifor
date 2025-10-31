@@ -1,0 +1,199 @@
+
+<input type="file" id="arq">
+<button onmousedown="menu()" onmouseup="abrirArquivo()">Traduzir</button><br />
+<p id="dlink">Arquivo de Saida.</p>
+<script>
+
+var textoEntrada = [];
+var textoSaida = [];
+var M;
+var qLinhas;
+	
+var menu = function()
+{
+	var arquivo = document.getElementById("arq").files[0];
+	var fileReader = new FileReader();
+	fileReader.onload = function(evento)
+	{
+		textoEntrada = evento.target.result;
+	};
+	fileReader.readAsText(arquivo, "UTF-8");
+}
+	
+var abrirArquivo = function()
+{
+	construirMatriz();
+	traduzirInstrucao(0);				// TRADUZ LINHA 0 DO CÓDIGO EM LINGUAGEM DE MONTAGEM E COLOCA RESULTADO EM UM VETOR (textoSaida)
+	traduzirInstrucao(1);				// TRADUZ LINHA 1 DO CÓDIGO EM LINGUAGEM DE MONTAGEM E COLOCA RESULTADO EM UM VETOR (textoSaida)
+	traduzirInstrucao(2);				// TRADUZ LINHA 2 DO CÓDIGO EM LINGUAGEM DE MONTAGEM E COLOCA RESULTADO EM UM VETOR (textoSaida)
+	escreverArquivo(textoSaida);
+
+}
+
+var escreverArquivo = function(texto)
+{
+	uriContent = "data:application/octet-stream," + encodeURIComponent(texto);
+	document.getElementById("dlink").innerHTML = "<a href=" + uriContent + " download=\"arquivo_de_saida.txt\">Arquivo de Saida</a>";
+}
+
+var construirMatriz = function()
+{
+	var tamanho; 
+	var linha;
+	var coluna;
+	var caractere;
+		
+	tamanho = textoEntrada.length;
+	alert(textoEntrada);
+	M = new Array(tamanho);
+	var i = 0;
+	while(i<tamanho)
+	{
+		M[i] = new Array(6);
+		i++;
+	}
+	
+	linha = 0;
+	coluna = 0;
+	caractere = 0;	
+	while(caractere<tamanho)
+	{	
+		M[linha][coluna] = textoEntrada[caractere];
+		if(textoEntrada[caractere] == ';')
+		{
+			linha++;
+			coluna = -1;
+			caractere = caractere + 2;
+		}
+		coluna++;
+		caractere++;
+	}
+	qLinhas = linha;
+	
+}
+
+var mostrarMatriz = function()
+{
+	for(var linha=0;linha<qLinhas;linha++)
+	{
+		for(var coluna=0;coluna<6;coluna++)
+		{
+			document.write(M[linha][coluna] + " ");
+			if(M[linha][coluna] == ";")
+			{
+				break;
+			}
+		}
+		document.write("<br>");
+	}	
+}
+
+var decimalParaC2 = function(numero)
+{
+		if(numero >= 0 && numero < 7)
+			C2 = numero;
+		if(numero == -8)
+			C2 = '8';
+		if(numero == -7)
+			C2 = '9';
+		if(numero == -6)
+			C2 = 'A';
+		if(numero == -5)
+			C2 = 'B';
+		if(numero == -4)
+			C2 = 'C';
+		if(numero == -3)
+			C2 = 'D';	
+		if(numero == -2)
+			C2 = 'E';
+		if(numero == -1)
+			C2 = 'F';
+				
+		return C2;
+}
+
+var traduzirInstrucao = function(linha)
+{
+	
+	var instrucao;
+	var indiceFim;
+	var indiceA;
+	var indiceB;
+	var indiceSoma;
+	var ladoEsquerdo;
+	var ladoDireito;
+	var operandoConstante;
+	
+	instrucao  = M[linha];
+	indiceA = -1;
+	indiceB = -1;
+	indiceSoma = -1;
+	
+	for(i=0;i<instrucao.length;i++)
+	{
+		if(instrucao[i] == ';')
+		{
+			indiceFim = i;
+		}
+	}
+	
+	ladoEsquerdo = instrucao[0];
+	ladoDireito = instrucao.slice(2,indiceFim);
+		
+	for(i=0;i<ladoDireito.length;i++)
+	{
+		if(ladoDireito[i] == 'A')
+		{
+			indiceA = i;
+		}
+		if(ladoDireito[i] == 'B')
+		{
+			indiceB = i;
+		}
+		if(ladoDireito[i] == '+')
+		{
+			indiceSoma = i;
+		}
+	}
+				
+	operandoConstante = indiceA == -1 && indiceB == -1 && indiceSoma == -1;
+	
+	if(ladoEsquerdo == "A" && operandoConstante)									// A = CONST.
+	{
+		textoSaida[2*linha] = "2";
+		if(ladoDireito[0] == '-')
+			numero = -parseInt(ladoDireito[1]);
+		else
+			numero = parseInt(ladoDireito[0]);
+			
+		textoSaida[2*linha+1] = decimalParaC2(numero);
+	}
+		
+	if(ladoEsquerdo== "B" && operandoConstante)										// B = CONST.
+	{
+		textoSaida[2*linha] = "1";
+		if(ladoDireito[0] == '-')
+			numero = -parseInt(ladoDireito[1]);
+		else
+			numero = parseInt(ladoDireito[0]);
+			
+		textoSaida[2*linha+1] = decimalParaC2(numero);
+	}
+		
+	if(ladoEsquerdo== "A" && indiceA != -1 && indiceSoma != -1 && indiceB != -1)	// A = A + B
+	{
+		textoSaida[2*linha] = "E";
+		textoSaida[2*linha+1] = "0";
+	}
+			
+}
+
+
+	
+</script>
+
+
+
+
+
+

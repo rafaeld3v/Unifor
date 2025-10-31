@@ -1,0 +1,21 @@
+#calculadora {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+#field {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+
+    width: 5rem;
+}
+
+#operations {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+
+    width: 5rem;
+}

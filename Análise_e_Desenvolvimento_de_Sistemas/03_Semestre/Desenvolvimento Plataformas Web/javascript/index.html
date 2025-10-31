@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 1</title>
+    <link rel="stylesheet" href="./index.css">
+    <script src="./app.js"></script>
+</head>
+
+<body>
+    <!-- Atividade 1 -->
+    <h1>Atividade 1</h1>
+    <label for="">Caixa de texto</label>
+    <input id="cx_texto" type="text" onkeyup="capsLock()">
+
+    <!-- Atividade 2 -->
+    <h1>Atividade 2</h1>
+    <label for="">Senha</label>
+    <input id="senha" type="password">
+
+    <label for="">Repita Senha</label>
+    <input id="senha_repeat" type="password">
+
+    <button onclick="verificarSenha()">Verificar</button>
+
+    <!-- Atividade 3 -->
+    <h1>Atividade 3</h1>
+    <div id="calculadora">
+        <div id="field">
+            <label for="valor 1">Valor 1</label>
+            <input id="x" type="number">
+
+            <label for="valor 2">Valor 2</label>
+            <input id="y" type="number">
+
+            <label for="resultado">Resultado</label>
+            <input id="result" type="number">
+
+        </div>
+
+        <div id="operations">
+            <button id="somar" onclick="calcular(this)">Somar</button>
+            <button id="subtrair" onclick="calcular(this)">Subtrair</button>
+            <button id="multiplicar" onclick="calcular(this)">Multiplicar</button>
+            <button id="dividir" onclick="calcular(this)">Dividir</button>
+        </div>
+    </div>
+
+    <!-- Atividade 4 -->
+    <h1>Atividade 4</h1>
+    <table id="table-contacts">
+        <thead>
+            <td>nome</td>
+            <td>email</td>
+            <td>telefone</td>
+        </thead>
+        <tbody>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tbody>
+    </table>
+</body>
+
+</html>

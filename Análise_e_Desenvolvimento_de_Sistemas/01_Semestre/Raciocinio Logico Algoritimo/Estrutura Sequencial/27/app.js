@@ -1,0 +1,5 @@
+let n1 = parseFloat(prompt("Digite o primeiro numero: "))
+let n2 = parseFloat(prompt("Digite o segundo numero: "))
+let n3 = parseFloat(prompt("Digite o terceiro numero: "))
+let multp = (n1 * n2 * n3)
+document.write("A multiplicação do primeiro número pelo segundo e pelo terceiro é: ", multp)

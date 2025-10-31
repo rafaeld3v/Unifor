@@ -1,0 +1,14 @@
+Entidade DESPESA:
+atributos
+- Data
+- Meio de pagamento
+- Descrição
+- Tipo
+- Valor
+- Local
+
+Entidade CARTAO DE CREDITO:
+atributos
+- Bandeira
+- Limite
+- Tipo

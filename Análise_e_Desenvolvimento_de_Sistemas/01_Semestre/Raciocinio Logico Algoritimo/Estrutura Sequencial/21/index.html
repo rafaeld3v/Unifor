@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title> Atividade 21 </title>
+    </head>
+    <body>
+        <script>
+            let escada = parseFloat(prompt("Digite a distancia da escada em cm:"))
+            let altura = parseFloat(prompt("Digite a altura que o usuario deseja pregar o quadro em cm:"))
+            let pitagoras = (Math.pow(escada, 2) - Math.pow(altura, 2))
+            let distancia = Math.sqrt(pitagoras)
+            if(distancia > 0){
+                document.write("A distancia da escada da parede é: ", distancia, "cm")
+            }else{
+                document.write("Lembre-se de que o tamanho da escada deve ser maior que a altura que se deseja alcançar.")
+            }
+        </script>
+    </body>
+</html>
